@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:padding="16dp"
+    tools:context=".activity.SettingsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@drawable/space_16"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <include layout="@layout/activity_settings_assist_card" />
+
+        <include layout="@layout/activity_settings_home_card" />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

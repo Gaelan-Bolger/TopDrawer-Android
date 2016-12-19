@@ -3,4 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="pill_menu_drag_fg">#ffb2b2b2</color>
+    <color name="pill_menu_bg">#ffffffff</color>
+    <color name="pill_menu_bg_pressed">#fff0f0f0</color>
 </resources>

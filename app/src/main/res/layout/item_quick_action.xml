@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/bg_pill_height"
+    android:background="@drawable/bg_white_pill"
+    android:clickable="true"
+    android:divider="@drawable/space_8"
+    android:elevation="8dp"
+    android:minWidth="@dimen/bg_pill_width"
+    android:orientation="horizontal"
+    android:padding="4dp"
+    android:showDividers="middle">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        tools:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:textAppearance="?android:attr/textAppearanceSmallPopupMenu"
+        tools:text="@string/app_name" />
+</LinearLayout>

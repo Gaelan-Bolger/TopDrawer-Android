@@ -5,5 +5,5 @@ import com.orm.SugarApp;
 /**
  * Created by Gaelan Bolger on 12/19/2016.
  */
-public class AssisApplication extends SugarApp {
+public class AssistApplication extends SugarApp {
 }

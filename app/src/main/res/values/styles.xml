@@ -1,14 +1,31 @@
 <resources>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+    </style>
+
+    <style name="AppTheme.Dialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
     <style name="Text" parent="@style/TextAppearance.AppCompat">
         <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="Text.ApplicationItem">
+        <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
 
     <style name="Text.Card" />
@@ -17,9 +34,11 @@
         <item name="android:fontFamily">sans-serif-thin</item>
     </style>
 
-    <style name="Text.Card.Content" />
+    <style name="Text.Card.Small">
+        <item name="android:textSize">14sp</item>
+    </style>
 
-    <style name="Text.Card.Content.Large">
+    <style name="Text.Card.Medium">
         <item name="android:textSize">16sp</item>
     </style>
 

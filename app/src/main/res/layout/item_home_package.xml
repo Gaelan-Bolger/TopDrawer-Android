@@ -28,14 +28,14 @@
             android:id="@android:id/text1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/Text.Card.Content.Large"
+            android:textAppearance="@style/Text.Card.Medium"
             tools:text="Application label" />
 
         <TextView
             android:id="@android:id/text2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/Text.Card.Content"
+            android:textAppearance="@style/Text.Card.Small"
             tools:text="Application package name" />
     </LinearLayout>
 </LinearLayout>

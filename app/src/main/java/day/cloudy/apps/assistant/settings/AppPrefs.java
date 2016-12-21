@@ -7,10 +7,12 @@ import android.preference.PreferenceManager;
 /**
  * Created by Gaelan Bolger on 12/15/2016.
  */
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class AppPrefs {
 
     public static final String KEY_HOME_PACKAGE = "home_package_name";
-    static final String KEY_HOME_ACTIVITY = "home_activity_name";
+    public static final String KEY_HOME_ACTIVITY = "home_activity_name";
+    public static final String KEY_DEBUG_DRAWER = "debug_drawer";
     private static AppPrefs mInstance;
     private SharedPreferences mPreferences;
 
@@ -55,6 +57,14 @@ public class AppPrefs {
 
     public boolean setString(Context context, String key, String value) {
         return getEditor(context).putString(key, value).commit();
+    }
+
+    public boolean getBoolean(Context context, String key, boolean defValue) {
+        return getSharedPreferences(context).getBoolean(key, defValue);
+    }
+
+    public boolean setBoolean(Context context, String key, boolean value) {
+        return getEditor(context).putBoolean(key, value).commit();
     }
 
     private SharedPreferences.Editor getEditor(Context context) {

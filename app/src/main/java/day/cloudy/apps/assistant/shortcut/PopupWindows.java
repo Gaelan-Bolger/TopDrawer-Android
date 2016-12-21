@@ -21,7 +21,7 @@ import android.widget.PopupWindow;
  **/
 public class PopupWindows {
     protected Context mContext;
-    public static PopupWindow mWindow;
+    public PopupWindow mWindow;
     protected View mRootView;
     protected Drawable mBackground = null;
     protected WindowManager mWindowManager;
@@ -103,6 +103,15 @@ public class PopupWindows {
     }
 
     /**
+     * Set overlap anchor.
+     *
+     * @param overlapAnchor Overlap anchor
+     */
+    public void setOverlapAnchor(boolean overlapAnchor) {
+        mWindow.setOverlapAnchor(overlapAnchor);
+    }
+
+    /**
      * Set content view.
      *
      * @param root Root view
@@ -136,7 +145,7 @@ public class PopupWindows {
     /**
      * Dismiss the popup window.
      */
-    public static void dismiss() {
+    public void dismiss() {
         if (null != mWindow && mWindow.isShowing())
             mWindow.dismiss();
     }

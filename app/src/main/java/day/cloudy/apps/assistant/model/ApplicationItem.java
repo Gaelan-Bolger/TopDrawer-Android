@@ -2,10 +2,7 @@ package day.cloudy.apps.assistant.model;
 
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.ShortcutInfo;
 import android.graphics.drawable.Drawable;
-
-import java.util.List;
 
 /**
  * Created by Gaelan Bolger on 12/15/2016.
@@ -15,7 +12,6 @@ public class ApplicationItem {
     public ApplicationInfo applicationInfo;
     public String label;
     public Drawable icon;
-    public List<ShortcutInfo> shortcuts;
 
     public ApplicationItem(ApplicationInfo applicationInfo, String label, Drawable icon) {
         this.applicationInfo = applicationInfo;

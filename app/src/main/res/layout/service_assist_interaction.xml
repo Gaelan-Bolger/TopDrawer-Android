@@ -67,10 +67,12 @@
                     android:text="No applications found"
                     android:visibility="gone" />
 
-                <android.support.v7.widget.RecyclerView
+                <day.cloudy.apps.assistant.recycler.FirstRowDividerRecyclerView
                     android:id="@+id/recycler_view"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp" />
             </FrameLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>

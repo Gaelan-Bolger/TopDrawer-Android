@@ -85,14 +85,16 @@ public class SettingsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void showResetFrequentsConfirmationDialog() {
-        ConfirmationDialog.newInstance("Are you sure you want to reset all most frequently used application data?", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int which) {
-                SugarRecord.deleteAll(RecentApplication.class);
-                Toast.makeText(SettingsActivity.this, "Most frequent apps reset", Toast.LENGTH_SHORT).show();
-            }
-        }).show(getSupportFragmentManager(), "reset_frequents");
+    @OnClick({R.id.button_assist_settings, R.id.button_home_settings})
+    public void onButtonClick(Button button) {
+        switch (button.getId()) {
+            case R.id.button_assist_settings:
+                startActivity(new Intent(Settings.ACTION_VOICE_INPUT_SETTINGS));
+                break;
+            case R.id.button_home_settings:
+                startActivity(new Intent(Settings.ACTION_HOME_SETTINGS));
+                break;
+        }
     }
 
     private void updateViews() {
@@ -145,16 +147,14 @@ public class SettingsActivity extends AppCompatActivity {
         });
     }
 
-    @OnClick({R.id.button_assist_settings, R.id.button_home_settings})
-    public void onButtonClick(Button button) {
-        switch (button.getId()) {
-            case R.id.button_assist_settings:
-                startActivity(new Intent(Settings.ACTION_VOICE_INPUT_SETTINGS));
-                break;
-            case R.id.button_home_settings:
-                startActivity(new Intent(Settings.ACTION_HOME_SETTINGS));
-                break;
-        }
+    private void showResetFrequentsConfirmationDialog() {
+        ConfirmationDialog.newInstance("Reset all most frequently used application data?", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int which) {
+                SugarRecord.deleteAll(RecentApplication.class);
+                Toast.makeText(SettingsActivity.this, "Most frequent apps reset", Toast.LENGTH_SHORT).show();
+            }
+        }).show(getSupportFragmentManager(), "reset_frequents");
     }
 
     private class HomeApplicationsAdapter extends BaseAdapter implements SpinnerAdapter {

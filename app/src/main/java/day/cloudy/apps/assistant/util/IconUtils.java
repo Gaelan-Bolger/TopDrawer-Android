@@ -1,10 +1,12 @@
 package day.cloudy.apps.assistant.util;
 
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ScaleDrawable;
 import android.util.Base64;
 
 import java.io.ByteArrayOutputStream;
@@ -13,6 +15,25 @@ import java.io.ByteArrayOutputStream;
  * Created by Gaelan Bolger on 12/19/2016.
  */
 public class IconUtils {
+
+    private static int mAppIconSize = -1;
+
+    public static Drawable normalize(Drawable icon) {
+        if (mAppIconSize == -1) {
+            mAppIconSize = Resources.getSystem().getDimensionPixelSize(android.R.dimen.app_icon_size);
+        }
+        icon = new ScaleDrawable(icon, 0, icon.getIntrinsicWidth(), icon.getIntrinsicHeight()).getDrawable();
+        icon.setBounds(0, 0, mAppIconSize, mAppIconSize);
+        return icon;
+    }
+
+    public static Bitmap normalize(Bitmap icon) {
+        if (mAppIconSize == -1) {
+            mAppIconSize = Resources.getSystem().getDimensionPixelSize(android.R.dimen.app_icon_size);
+        }
+        icon = Bitmap.createScaledBitmap(icon, mAppIconSize, mAppIconSize, true);
+        return icon;
+    }
 
     public static Bitmap getBitmap(Drawable drawable) {
         if (drawable instanceof BitmapDrawable)

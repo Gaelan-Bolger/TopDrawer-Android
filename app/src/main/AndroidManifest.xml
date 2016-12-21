@@ -2,9 +2,10 @@
     package="day.cloudy.apps.assistant">
 
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
-        android:name=".AssisApplication"
+        android:name=".AssistApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -26,10 +27,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activity.SettingsActivity"
             android:label="@string/app_name" />
+        <activity
+            android:name=".activity.DialogActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/AppTheme.Dialog" />
 
         <service
             android:name=".AssistInteractionService"

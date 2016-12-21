@@ -10,7 +10,7 @@ import android.support.annotation.RequiresApi;
 /**
  * Created by Gaelan Bolger on 12/16/2016.
  */
-public class ShortCutUtils {
+public class ShortcutUtils {
 
     @RequiresApi(api = Build.VERSION_CODES.N_MR1)
     public static boolean startShortcut(Context context, ShortcutInfo shortcutInfo) {

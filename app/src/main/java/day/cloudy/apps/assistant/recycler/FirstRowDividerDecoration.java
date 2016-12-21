@@ -10,15 +10,13 @@ import android.view.View;
 /**
  * Created by Gaelan Bolger on 12/19/2016.
  */
-public class UnderlineFirstRowDecoration extends RecyclerView.ItemDecoration {
+public class FirstRowDividerDecoration extends RecyclerView.ItemDecoration {
 
     private final LinearLayoutManager mLayoutManager;
-    private final int mBottomPadding;
     private Paint mPaint;
 
-    public UnderlineFirstRowDecoration(LinearLayoutManager layoutManager, int bottomPadding) {
+    public FirstRowDividerDecoration(LinearLayoutManager layoutManager) {
         mLayoutManager = layoutManager;
-        mBottomPadding = bottomPadding;
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setColor(Color.parseColor("#AAAAAA"));
     }
@@ -26,10 +24,10 @@ public class UnderlineFirstRowDecoration extends RecyclerView.ItemDecoration {
     @Override
     public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
         if (parent.getChildCount() > 0 && mLayoutManager.findFirstVisibleItemPosition() == 0) {
-            View view = parent.getChildAt(0);
-            int left = parent.getPaddingLeft();
-            int right = parent.getWidth() - parent.getPaddingRight();
-            int bottom = view.getBottom() + mBottomPadding;
+            View child = parent.getChildAt(0);
+            int left = parent.getLeft();
+            int right = parent.getRight();
+            int bottom = child.getBottom();
             c.drawLine(left, bottom, right, bottom, mPaint);
         }
     }

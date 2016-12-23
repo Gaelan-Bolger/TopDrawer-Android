@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/card_assist"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_secondary_home"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardUseCompatPadding="true">
@@ -37,7 +38,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="@string/assistant"
+                        android:text="@string/secondary_home"
                         android:textAppearance="@style/Text.Card.Title" />
 
                     <TextView
@@ -48,7 +49,7 @@
                 </LinearLayout>
 
                 <ImageView
-                    android:id="@+id/image_view_assistant_status"
+                    android:id="@+id/image_view_secondary_home_status"
                     android:layout_width="40dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
@@ -65,23 +66,23 @@
                 android:paddingTop="8dp"
                 android:showDividers="middle">
 
-                <TextView
+                <Spinner
+                    android:id="@+id/spinner_secondary_home_options"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:lineSpacingExtra="2dp"
-                    android:text="@string/default_assistant_description"
-                    android:textAppearance="@style/Text.Card.Small" />
+                    tools:listitem="@layout/item_home_package" />
             </LinearLayout>
         </LinearLayout>
 
         <Button
-            android:id="@+id/button_assist_settings"
+            android:id="@+id/button_secondary_home_settings"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:text="@string/assist_settings" />
+            android:text="@string/home_settings"
+            android:visibility="gone" />
     </LinearLayout>
 </android.support.v7.widget.CardView>

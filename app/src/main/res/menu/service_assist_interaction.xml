@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <item
-        android:id="@+id/item_settings"
-        android:title="Settings"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/item_reset_frequents"
-        android:title="Reset"
-        app:showAsAction="never" />
+        android:id="@+id/item_clear_text"
+        android:icon="@drawable/ic_clear_gray_24dp"
+        android:title="@string/clear"
+        android:visible="false"
+        app:showAsAction="always"
+        tools:ignore="AlwaysShowAction" />
+    <group android:id="@+id/group_overflow">
+        <item
+            android:id="@+id/item_settings"
+            android:title="@string/settings"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/group_frequents"
+            android:enabled="true"
+            android:title="@string/frequents">
+            <menu>
+                <item
+                    android:id="@+id/item_show_frequents"
+                    android:checkable="true"
+                    android:checked="true"
+                    android:title="@string/show"
+                    app:showAsAction="never" />
+                <item
+                    android:id="@+id/item_reset_frequents"
+                    android:title="@string/reset"
+                    app:showAsAction="never" />
+            </menu>
+        </item>
+    </group>
 </menu>

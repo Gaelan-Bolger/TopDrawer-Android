@@ -16,6 +16,8 @@
 
         <include layout="@layout/activity_settings_assist_card" />
 
-        <include layout="@layout/activity_settings_home_card" />
+        <include layout="@layout/activity_settings_default_home_card" />
+
+        <include layout="@layout/activity_settings_secondary_home_card" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

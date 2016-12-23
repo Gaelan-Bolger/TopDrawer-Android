@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -50,8 +51,10 @@ public class SettingsActivity extends AppCompatActivity {
     ImageView vAssistStatus;
     @BindView(R.id.image_view_home_status)
     ImageView vHomeStatus;
-    @BindView(R.id.spinner_home_options)
-    Spinner vHomeOptions;
+    @BindView(R.id.card_secondary_home)
+    CardView vSecondaryHomeCard;
+    @BindView(R.id.spinner_secondary_home_options)
+    Spinner vSecondaryHomeOptions;
 
     private AppPrefs mPrefs = AppPrefs.getInstance();
     private HomeApplicationsAdapter mHomePackagesAdapter;
@@ -104,20 +107,14 @@ public class SettingsActivity extends AppCompatActivity {
         boolean isHomePackage = PackageUtils.isDefaultHomePackage(this);
         vHomeStatus.setImageResource(isHomePackage ? R.drawable.ic_check_green_24dp : R.drawable.ic_cancel_red_24dp);
 
+        vSecondaryHomeCard.setVisibility(isHomePackage ? View.VISIBLE : View.GONE);
+
         PackageManager packageManager = getPackageManager();
-        List<ResolveInfo> homeApps = PackageUtils.getHomeActivities(packageManager);
-        for (int i = homeApps.size() - 1; i >= 0; i--) {
-            ResolveInfo homeApp = homeApps.get(i);
-            String homeAppPackageName = homeApp.activityInfo.packageName;
-            if (homeAppPackageName.equals(getPackageName())) {
-                homeApps.remove(homeApp);
-                break;
-            }
-        }
+        List<ResolveInfo> homeApps = PackageUtils.getHomePackages(packageManager);
         Collections.sort(homeApps, new ResolveInfo.DisplayNameComparator(packageManager));
         mHomePackagesAdapter = new HomeApplicationsAdapter(this);
         mHomePackagesAdapter.setsHomeApps(homeApps);
-        vHomeOptions.setAdapter(mHomePackagesAdapter);
+        vSecondaryHomeOptions.setAdapter(mHomePackagesAdapter);
 
         String homePackageName = mPrefs.getHomePackageName(this);
         String homeActivityName = mPrefs.getHomeActivityName(this);
@@ -126,12 +123,12 @@ public class SettingsActivity extends AppCompatActivity {
             ActivityInfo activityInfo = resolveInfo.activityInfo;
             if (activityInfo.packageName.equals(homePackageName)
                     && activityInfo.name.equals(homeActivityName)) {
-                vHomeOptions.setSelection(i);
+                vSecondaryHomeOptions.setSelection(i);
                 break;
             }
         }
 
-        vHomeOptions.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        vSecondaryHomeOptions.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 ResolveInfo item = mHomePackagesAdapter.getItem(position);

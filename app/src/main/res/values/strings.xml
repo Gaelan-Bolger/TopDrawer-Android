@@ -1,13 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?><!DOCTYPE resources [<!ENTITY appname "OvrDrwrd"><!ENTITY author "Gaelan Bolger">]>
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE resources [<!ENTITY appname "Top Drawer"><!ENTITY author "Gaelan Bolger">]>
 <resources>
     <string name="app_name">&appname;</string>
     <string name="app_developer">&author;</string>
 
+    <string name="app_info">App Info</string>
+    <string name="uninstall">Uninstall</string>
+
+    <string name="settings">Settings</string>
+    <string name="frequents">Frequents</string>
+    <string name="show">Show</string>
+    <string name="reset">Reset</string>
+    <string name="clear">Clear</string>
+    <string name="required">Required</string>
+    <string name="recommended">Recommended</string>
+
+    <string name="loading">Loading&#8230;</string>
+    <string name="search_apps">Search Apps&#8230;</string>
+
+    <string name="no_applications_found">No applications found</string>
+
     <string name="assistant">Assistant</string>
     <string name="assist_settings">Assist settings</string>
-    <string name="default_assistant_description">Assistant is required.\n\nAccess by long pressing the home button once enabled.</string>
+    <string name="default_assistant_description">Once enabled you may access the &appname;
+        application drawer by long pressing your home button. Please enable \'Assist app\' by tapping the button below and choosing &appname;
+        from the list. The options \'Use text from screen\' and \'Use screenshot\' may be disabled as they are not required by &appname;.</string>
     <string name="home">Home</string>
     <string name="home_settings">Home settings</string>
-    <string name="default_home_description">Home is recommended.\n\nSetting &appname; as your default launcher applications allows &appname;
-        to show App Shortcuts when icons are long pressed (requires specific application support).</string>
+    <string name="default_home_description">Setting &appname; as your default launcher application allows &appname;
+        to show App Shortcuts when icons are long pressed (requires specific application support). Enable \'Home app\' by tapping the button below and choosing &appname;
+        from the list.</string>
+    <string name="secondary_home">Secondary Home</string>
 </resources>

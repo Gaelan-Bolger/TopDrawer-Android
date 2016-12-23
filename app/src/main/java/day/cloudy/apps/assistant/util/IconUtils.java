@@ -4,6 +4,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Path;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ScaleDrawable;
@@ -54,5 +55,19 @@ public class IconUtils {
     public static Bitmap decodeFromBase64(String input) {
         byte[] ba = Base64.decode(input, Base64.DEFAULT);
         return BitmapFactory.decodeByteArray(ba, 0, ba.length);
+    }
+
+    public static Drawable cropCircle(Drawable icon) {
+        Bitmap src = getBitmap(icon);
+        int width = src.getWidth();
+        int height = src.getHeight();
+        final Path path = new Path();
+        path.addCircle((float) (width / 2), (float) (height / 2),
+                (float) Math.min(width, (height / 2)), Path.Direction.CCW);
+        Bitmap des = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(des);
+        canvas.clipPath(path);
+        canvas.drawBitmap(src, 0, 0, null);
+        return new BitmapDrawable(des);
     }
 }

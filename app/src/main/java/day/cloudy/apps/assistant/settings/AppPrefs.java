@@ -12,6 +12,7 @@ public class AppPrefs {
 
     public static final String KEY_HOME_PACKAGE = "home_package_name";
     public static final String KEY_HOME_ACTIVITY = "home_activity_name";
+    public static final String KEY_SHOW_FREQUENTS = "show_frequents";
     public static final String KEY_DEBUG_DRAWER = "debug_drawer";
     private static AppPrefs mInstance;
     private SharedPreferences mPreferences;
@@ -36,7 +37,7 @@ public class AppPrefs {
     }
 
     public String getHomePackageName(Context context) {
-        return getString(context, KEY_HOME_PACKAGE);
+        return getString(context, KEY_HOME_PACKAGE, "");
     }
 
     public boolean setHomePackageName(Context context, String packageName) {
@@ -44,19 +45,27 @@ public class AppPrefs {
     }
 
     public String getHomeActivityName(Context context) {
-        return getString(context, KEY_HOME_ACTIVITY);
+        return getString(context, KEY_HOME_ACTIVITY, "");
     }
 
     public boolean setHomeActivityName(Context context, String activityName) {
         return setString(context, KEY_HOME_ACTIVITY, activityName);
     }
 
-    public String getString(Context context, String key) {
-        return getSharedPreferences(context).getString(key, "");
+    public String getString(Context context, String key, String defValue) {
+        return getSharedPreferences(context).getString(key, defValue);
     }
 
     public boolean setString(Context context, String key, String value) {
         return getEditor(context).putString(key, value).commit();
+    }
+
+    public int getInt(Context context, String key, int defValue) {
+        return getSharedPreferences(context).getInt(key, defValue);
+    }
+
+    public boolean setInt(Context context, String key, int value) {
+        return getEditor(context).putInt(key, value).commit();
     }
 
     public boolean getBoolean(Context context, String key, boolean defValue) {

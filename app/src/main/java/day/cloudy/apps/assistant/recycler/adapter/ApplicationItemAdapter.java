@@ -127,7 +127,6 @@ public class ApplicationItemAdapter extends RecyclerView.Adapter<ApplicationItem
     }
 
     public void setHighlightedItem(ApplicationItem item) {
-        Log.d(TAG, "setHighlightedItem() called with: item = [" + item + "]");
         mHighlightedItem = item;
         notifyDataSetChanged();
     }

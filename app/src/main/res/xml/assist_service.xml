@@ -1,5 +1,5 @@
 <voice-interaction-service xmlns:android="http://schemas.android.com/apk/res/android"
-    android:recognitionService="day.cloudy.apps.assistant.AssistInteractionService"
-    android:sessionService="day.cloudy.apps.assistant.AssistInteractionSessionService"
-    android:settingsActivity="day.cloudy.apps.assistant.SettingsActivity"
+    android:recognitionService="day.cloudy.apps.assistant.assist.AssistInteractionService"
+    android:sessionService="day.cloudy.apps.assistant.assist.AssistInteractionSessionService"
+    android:settingsActivity="day.cloudy.apps.assistant.activity.SettingsActivity"
     android:supportsAssist="true" />

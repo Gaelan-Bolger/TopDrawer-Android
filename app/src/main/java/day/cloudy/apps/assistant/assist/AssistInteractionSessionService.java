@@ -1,4 +1,4 @@
-package day.cloudy.apps.assistant;
+package day.cloudy.apps.assistant.assist;
 
 import android.os.Bundle;
 import android.service.voice.VoiceInteractionSession;

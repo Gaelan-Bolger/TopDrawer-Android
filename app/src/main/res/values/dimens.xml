@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="action_item_space">4dp</dimen>
+
     <dimen name="bg_pill_width">208.0dip</dimen>
     <dimen name="bg_pill_height">48.0dip</dimen>
     <dimen name="bg_pill_radius">24.0dp</dimen>
-    <dimen name="action_item_space">4dp</dimen>
+
     <dimen name="dialog_padding_top">18dp</dimen>
+
+    <dimen name="list_margin_vertical">8dp</dimen>
+    <dimen name="list_margin_horizontal">8dp</dimen>
 </resources>

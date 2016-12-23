@@ -23,12 +23,21 @@ public class LaunchActivity extends Activity {
 
     private static final String TAG = LauncherActivity.class.getSimpleName();
 
+    private boolean mFromHomeKey = false;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        boolean defaultAssistPackage = AssistUtils.isDefaultAssistPackage(this);
-        boolean defaultHomePackage = PackageUtils.isDefaultHomePackage(this);
-        if (defaultAssistPackage && defaultHomePackage) {
+        Intent intent = getIntent();
+        if (null != intent) {
+            Bundle extras = intent.getExtras();
+            if (null != extras && extras.size() > 0) {
+                mFromHomeKey = extras.getBoolean("android.intent.extra.FROM_HOME_KEY", mFromHomeKey);
+            }
+        }
+        if (mFromHomeKey
+                && AssistUtils.isDefaultAssistPackage(this)
+                && PackageUtils.isDefaultHomePackage(this)) {
             String packageName = AppPrefs.getInstance().getHomePackageName(this);
             String activityName = AppPrefs.getInstance().getHomeActivityName(this);
             if (TextUtils.isEmpty(packageName) || TextUtils.isEmpty(activityName)) {

@@ -8,9 +8,13 @@
     android:focusableInTouchMode="true">
 
     <android.support.v7.widget.CardView
+        android:id="@+id/card_apps_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="8dp"
+        android:layout_marginBottom="@dimen/list_margin_vertical"
+        android:layout_marginTop="@dimen/list_margin_vertical"
+        android:layout_marginRight="@dimen/list_margin_horizontal"
+        android:layout_marginLeft="@dimen/list_margin_horizontal"
         app:cardBackgroundColor="#F5F5F5">
 
         <LinearLayout
@@ -26,13 +30,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="0dp"
-                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                android:theme="@style/AppTheme.AppBarOverlay"
                 app:elevation="0dp">
 
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    app:popupTheme="@style/AppTheme.PopupOverlay">
 
                     <EditText
                         android:id="@+id/edit_text_filter"
@@ -40,7 +45,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:background="@null"
-                        android:hint="Search Apps..."
+                        android:hint="@string/search_apps"
+                        android:lines="1"
+                        android:maxLength="140"
                         android:paddingBottom="16dp"
                         android:paddingTop="16dp"
                         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -64,7 +71,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="No applications found"
+                    android:text="@string/no_applications_found"
                     android:visibility="gone" />
 
                 <day.cloudy.apps.assistant.recycler.FirstRowDividerRecyclerView
